@@ -5,8 +5,8 @@
     <title>Redirect</title>
     <script>
         function abtblank(url) {
-            const width = window.innerWidth;
-            const height = window.innerHeight;
+            const width = window.screen.availWidth;
+            const height = window.screen.availHeight;
             let inFrame;
             try {
                 inFrame = window !== top;
@@ -16,8 +16,8 @@
             if (!inFrame && !navigator.userAgent.includes("Firefox")) {
                 const popup = window.open(
                     "about:blank",
-                    "Google Classroom",
-                    `width=${width},height=${height}`
+                    "popupWin", 
+                    `width=${width},height=${height},toolbar=0,menubar=0,location=0,resizable=1,scrollbars=1,status=0`
                 );
                 if (!popup || popup.closed) {
                     alert("Allow popups and redirects to hide this from showing up in your history.");
